@@ -6,9 +6,11 @@ We are using a dataset from IFSC Sport Climbing Competitions that focuses on bou
 The dataset includes the following columns: Competition Title,	Competition Date,	First name,	Last name, Nation,
 Start Number,	Rank, Qualification, Qualification 1, Qualification 2. Semifinal, Final, Category. 
 
+The dataset meets all the requirements, as it has thousands of records and many columns for decomposition, and it interests both project members (we love to boulder).
+
 We will decompose the dataset into a database to answer a number of questions.
 
-**Initial Questions:**
+**Initial/Example Questions:**
 1. Is there a home-field advantage: Are climbers more successful in competitions in their home country?
 2. What is the correlation between start number and success in the competition?
 3. Who are the winningest climbers in terms of finals appearances and ranks?
