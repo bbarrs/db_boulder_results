@@ -173,3 +173,5 @@ ORDER BY entry_id;
 
 -- drop csv table to remove redundancies
 DROP TABLE results_csv;
+
+SET SQL_SAFE_UPDATES = 1;
