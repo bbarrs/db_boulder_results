@@ -1,8 +1,8 @@
 -- create database
-CREATE DATABASE boulder_results;
+-- CREATE DATABASE boulder_results;
 
 -- use the database
-USE boulder_results;
+-- USE boulder_results;
 
 -- create the tables
 CREATE TABLE competition
@@ -152,19 +152,23 @@ AND r.StartNr = c.start_number
 AND r.`Rank` = c.climber_rank
 SET r.entry_id = c.entry_id;
 
--- qual population
+-- populate the results table
+-- qual population (ignores empty results)
 INSERT INTO results (entry_id, level, tops, top_attempts, zones, zone_attempts)
 SELECT DISTINCT entry_id, "q", Qtops, Qt_atts, Qzones, Qz_atts FROM results_csv
+WHERE Qt_atts != 0 OR Qz_atts != 0
 ORDER BY entry_id;
 
--- semi population
+-- semi population (ignores empty results)
 INSERT INTO results (entry_id, level, tops, top_attempts, zones, zone_attempts)
 SELECT DISTINCT entry_id, "s", Stops, St_atts, Szones, Sz_atts FROM results_csv
+WHERE St_atts != 0 OR Sz_atts != 0
 ORDER BY entry_id;
 
--- final population
+-- final population (ignores empty results)
 INSERT INTO results (entry_id, level, tops, top_attempts, zones, zone_attempts)
 SELECT DISTINCT entry_id, "f", Ftops, Ft_atts, Fzones, Fz_atts FROM results_csv
+WHERE Ft_atts != 0 OR Fz_atts != 0
 ORDER BY entry_id;
 
 -- drop csv table to remove redundancies
